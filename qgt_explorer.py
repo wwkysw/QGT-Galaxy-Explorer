@@ -16,7 +16,10 @@ section = st.sidebar.radio("Choose a visualization:", [
 
 # Start with IF
 if section == "Rotation Curve":
-    # Rotation curve plot code here
+    st.subheader("📈 Rotation Curve of NGC 2403")
+    fig, ax = plt.subplots()
+    ax.plot(...)  # your plotting code here
+    st.pyplot(fig)
 
 # Then continue with ELIF
 elif section == "Model Residuals":

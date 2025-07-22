@@ -162,5 +162,3 @@ elif section == "Dark Matter Comparison":
     ax.grid(True)
     st.pyplot(fig)
     st.markdown("💡 QGT matches the observed rotation curve directly. Dark matter models approximate it via invisible mass, especially beyond R₀.")
-
-

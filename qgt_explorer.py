@@ -139,8 +139,17 @@ if galaxy == "NGC 2403":
 elif galaxy == "NGC 3198":
     dark_matter_velocity = [28.0, 49.0, 71.0, 91.5, 107.0, 116.0, 121.5, 125.0, 127.2, 128.5, 128.8, 129.0, 129.1, 129.2, 129.3]
 
+# 📍 Place this inside your existing visualization block after the other elifs
+
 elif section == "Dark Matter Comparison":
     st.subheader(f"🌌 Dark Matter vs QGT — {galaxy}")
+
+    # ✅ Provide synthetic dark matter model curves
+    if galaxy == "NGC 2403":
+        dark_matter_velocity = [28.5, 52.0, 77.5, 101.0, 120.0, 126.0, 128.0, 129.0, 129.5, 129.7, 129.8, 130.0, 130.2, 130.3, 130.5]
+    elif galaxy == "NGC 3198":
+        dark_matter_velocity = [28.0, 49.0, 71.0, 91.5, 107.0, 116.0, 121.5, 125.0, 127.2, 128.5, 128.8, 129.0, 129.1, 129.2, 129.3]
+
     fig, ax = plt.subplots()
     ax.plot(radius, observed_velocity, label='Observed', color='black', linestyle=':')
     ax.plot(radius, dark_matter_velocity, label='Dark Matter Model', color='purple', linestyle='--')
@@ -153,7 +162,6 @@ elif section == "Dark Matter Comparison":
     ax.grid(True)
     st.pyplot(fig)
     st.markdown("💡 QGT matches the observed rotation curve directly. Dark matter models approximate it via invisible mass, especially beyond R₀.")
-
 
 
 

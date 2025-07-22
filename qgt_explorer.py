@@ -91,4 +91,42 @@ elif section == "Amplification Factor":
     fig, ax = plt.subplots()
     ax.plot(radius, amplification, 'm-o', label="Amplification (×)")
     ax.axvline(x=R0, color='gray', linestyle='--', label=f'R₀')
+    ax.set_xlabel("Radius (kpc)")
+    ax.set_ylabel("Amplification (×)")
+    ax.legend()
+    ax.grid(True)
+    st.pyplot(fig)
+
+elif section == "Stellar vs HI Density":
+    st.subheader(f"🌠 Stellar vs HI Density — {galaxy}")
+    fig, ax = plt.subplots()
+    ax.plot(radius, scaled_stellar, 'darkred', marker='o', linestyle='--', label="Stellar Density (scaled)")
+    ax.plot(radius, scaled_hi, 'dodgerblue', marker='s', linestyle='-.', label="HI Density (scaled)")
+    ax.axvline(x=R0, color='gray', linestyle='--', label=f'R₀')
+    ax.set_xlabel("Radius (kpc)")
+    ax.set_ylabel("Surface Density (scaled)")
+    ax.legend()
+    ax.grid(True)
+    st.pyplot(fig)
+
+elif section == "Composite Diagnostic":
+    st.subheader(f"🧭 Composite Diagnostic — {galaxy}")
+    fig, ax = plt.subplots()
+    ax.plot(radius, velocity_residual, 'r--', marker='x', label='Velocity Residual (%)')
+    ax.plot(radius, amplification, 'b-', marker='o', label='Amplification (×)')
+    ax.plot(radius, scaled_density, 'g-.', marker='s', label='Stellar Density (scaled)')
+    
+    # Flag breakdown zone
+    for i, r in enumerate(radius):
+        if velocity_residual[i] > 15 and amplification[i] > 10 and scaled_density[i] < 10:
+            ax.axvline(x=r, color='gray', linestyle=':', alpha=0.5)
+            ax.text(r, max(amplification)*1.1, '⚠', ha='center', fontsize=12)
+    
+    ax.axvline(x=R0, color='gray', linestyle='--', label=f'R₀')
+    ax.set_xlabel("Radius (kpc)")
+    ax.set_ylabel("Diagnostic Values")
+    ax.legend()
+    ax.grid(True)
+    st.pyplot(fig)
+
 

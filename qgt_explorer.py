@@ -129,16 +129,4 @@ elif section == "Composite Diagnostic":
     ax.grid(True)
     st.pyplot(fig)
     
-    elif section == "Dark Matter Comparison":
-    st.subheader(f"🌌 Dark Matter vs QGT — {galaxy}")
-    fig, ax = plt.subplots()
-
-if galaxy == "NGC 2403":
-    dark_matter_velocity = [28.5, 52.0, 77.5, 101.0, 120.0, 126.0, 128.0, 129.0, 129.5, 129.7, 129.8, 130.0, 130.2, 130.3, 130.5]
-
-elif galaxy == "NGC 3198":
-    dark_matter_velocity = [28.0, 49.0, 71.0, 91.5, 107.0, 116.0, 121.5, 125.0, 127.2, 128.5, 128.8, 129.0, 129.1, 129.2, 129.3]
-
-# 📍 Place this inside your existing visualization block after the other elifs
-
-# 🚧 Dark Matter Comparison temporarily removed — will re-add tomorrow
+    # 🚧 Dark Matter Comparison temporarily removed — will re-add tomorrow
